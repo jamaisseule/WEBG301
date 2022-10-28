@@ -6,20 +6,32 @@
     <div class="container-md">
         <div class="input-group">
             <div class="row">
-                <div class="col">
+                <div class="col-7">
                     <form action={{ path('app_product_index') }} method="get">
+{#                        <button class="input-group-text pm-3 py-0" id="basic-addon1">#}
+{#                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="purple"#}
+{#                                 class="bi bi-search" viewBox="0 0 16 16">#}
+{#                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>#}
+{#                            </svg>#}
+{#                        </button>#}
+                        <input type="string" name="name" class="form-control"
+                               placeholder="Search Product" aria-label="Search"
+                               aria-describedby="search-addon"/><br>
                         <h6>Category:</h6>
                         <label>
-                            <input name="category" type="checkbox" value="Cat"{{ (selectedCat=="cat") ? 'cat' }}> Cat
+                            <input name="category" type="checkbox" value="Sweater"{{ (selectedCat=="Sweater") ? 'Sweater' }}> Sweater
                         </label><br>
                         <label>
-                            <input name="category" type="checkbox" value="food"{{ (selectedCat=="Food") ? 'food' }}> Food
+                            <input name="category" type="checkbox" value="Pant"{{ (selectedCat=="Pant") ? 'Pant' }}> Pant
                         </label><br>
                         <label>
-                            <input name="category" type="checkbox" value="Accessory"{{ (selectedCat=="Accessory") ? 'Accessory' }}> Accessory
+                            <input name="category" type="checkbox" value="Dress"{{ (selectedCat==" Dress") ? ' Dress' }}> Dress
                         </label><br>
                         <label>
-                            <input name="category" type="checkbox" value="Medicine"{{ (selectedCat=="Medicine") ? 'Medicine' }}> Medicine
+                            <input name="category" type="checkbox" value="Blazer"{{ (selectedCat=="Blazer") ? 'Blazer' }}> Blazer
+                        </label><br>
+                        <label>
+                            <input name="category" type="checkbox" value="Shoes"{{ (selectedCat=="Shoes") ? 'Shoes' }}> Shoes
                         </label><br>
                         <br>
                         Min Price: <input type="number" name="minPrice"><br><br>
@@ -30,9 +42,9 @@
                     </form>
 
                 </div></div>
-    <div class="col-9">
-        <div class="container">
-            <div class="row">
+            <div class="col-9">
+                <div class="container">
+                    <div class="row">
                 {% if app.user=="ROLE_ADMIN" %}
                     <div class="mx-auto w-4/5 my-8 btn btn-primary"><a href="{{ path('app_product_new') }}" class="text-white">
                             Create new product</a></div>
@@ -51,21 +63,19 @@
             <div class="row row-cols-1 row-cols-md-4 g-4">
                 {% for product in products %}
                     <div class="col">
-                        <div class="card card-height-10rem btn"><a
-                                                class="text-black list-group-item text-decoration-none text-wrap"
+                        <div class="card h-100">
+                            <a class="text-black list-group-item text-decoration-none text-wrap"
                                                 href="{{ path('app_product_show', {'id': product.id}) }}">
                                             {#                                            <img class="card-img-top" src="{{ asset('public/images/'~product.Image) }}"> #}
 
                                 <img class="card-img-top" src="{{ asset('images/'~product.Image) }}">
 
-                                            <div class="card-body h-100 w-100 fs-5 text-wrap"
-                                                 style="width: 8rem;,height: 8rem;">
-                                                <h5 class="card-title h-100 w-100 fs-5 text-wrap"
-                                                    style="width: 8rem;">{{ product.Name }}</h5>
+                                <div class="card-body">
+                                                <h5 class="card-title">{{ product.Name }}</h5>
                                                 <h6 class="card-subtitle">Category: {{ product.category }}</h6>
-                                                <p>Price: {{ product.price }}</p>
+                                                <p>Price: ${{ product.price }}</p>
                                             </div>
-                                            <div class="card">
+                                            <div class="card-footer">
                                                 <a href="{{ path('app_add_cart', {'id': product.id}) }}"
                                                    class="btn btn-primary d-flex flex-wrap justify-content-center">Add to cart</a>
                                                 {#                                            <a href="{{ path('app_product_show', {'id': product.id}) }}" #}

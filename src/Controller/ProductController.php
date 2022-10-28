@@ -214,14 +214,14 @@ class ProductController extends AbstractController
         $filteredList = $productRepository->matching($criteria);
 
         $numOfItems = $filteredList->count();   // total number of items satisfied above query
-        $itemsPerPage = 12; // number of items shown each page
+        $itemsPerPage = 8; // number of items shown each page
         $logger->info($numOfItems);
         $logger->info($pageId);
         $filteredList = $filteredList->slice((int)$itemsPerPage * ((int)$pageId - 1), (int)$itemsPerPage);
 
         return $this->renderForm('product/index.html.twig', [
             'products' => $filteredList,
-            'selectedCat' => $selectedCategory ?: 'Cat',
+            'selectedCat' => $selectedCategory ?: 'Sweater',
             'numOfPages' => ceil($numOfItems / $itemsPerPage)
         ]);
     }

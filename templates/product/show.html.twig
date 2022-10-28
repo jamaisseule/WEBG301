@@ -3,11 +3,18 @@
 {% block title %}Product{% endblock %}
 
 {% block body %}
+    <div class="container-md">
     <h1>Product</h1>
-    <div class="d-flex justify-content-center">
-        <div class="row">
+    <br>
+    <div class="input-group">
+    <div class="row-cols-2">
+        <div class="col-8">
             <img class="card" src="{{asset('images/'~product.Image) }}" style="width: 30rem;">
-            <table class="row">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-13">
+            <table class="table">
                 <tbody>
                 <tr>
                     <th>Id</th>
@@ -27,7 +34,7 @@
                 </tr>
                 <tr>
                     <th>Price</th>
-                    <td>{{ product.Price }}</td>S
+                    <td>{{ product.Price }}</td>
                 </tr>
                 <tr>
                     <th>Weight</th>
@@ -46,6 +53,6 @@
                 <a class="btn btn-primary" href="{{ path('app_product_index') }}">Back To Main Page</a>
             </ul>
         </div>
-    </div>
+    </div></div></div>
     {#    {{ include('product/_delete_form.html.twig') }}#}
 {% endblock %}
