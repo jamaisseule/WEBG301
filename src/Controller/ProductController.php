@@ -178,6 +178,13 @@ class ProductController extends AbstractController
             'products' => $productRepository->findAll(),
         ]);
     }
+    /**
+     * @Route("/about", name="app_product_about", methods={"GET"})
+     */
+    public function about(): Response
+    {
+        return $this->render('product/_about.html.twig');
+    }
 
     /**
      * @Route("/{pageId}", name="app_product_index", methods={"GET"})
