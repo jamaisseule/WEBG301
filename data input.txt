@@ -12,6 +12,6 @@ INSERT INTO product(id, name, category, description, price, weight, image) VALUE
 ('11','Long Coat','Blazer','Black Felt','2500','','Long Black Felt Coat.JPG'),
 ('12','Leg Pant','Pant','Plaid Wide ','150','','Plaid Wide Leg Pant.JPG'),
 ('13','Corduroy Dress','Dress','Solid, Basic','3000','','Solid Corduroy Dress.JPG'),
-('14','Elegant Dress','Cat','Elegant Solid Maxi','890','','Elegant Solid Maxi Dress.JPG'),
+('14','Elegant Dress','Dress','Elegant Solid Maxi','890','','Elegant Solid Maxi Dress.JPG'),
 ('15','Blazer & Skirt','Blazer','Plaid','990','','Plaid Blazer & Skirt.JPG'),
 ('16','Long Dress','Dress','Overalls, Young, dynamic','950','','Long Overalls Dress.JPG');
