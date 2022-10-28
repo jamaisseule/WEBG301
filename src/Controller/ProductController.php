@@ -214,7 +214,7 @@ class ProductController extends AbstractController
         $filteredList = $productRepository->matching($criteria);
 
         $numOfItems = $filteredList->count();   // total number of items satisfied above query
-        $itemsPerPage = 9; // number of items shown each page
+        $itemsPerPage = 12; // number of items shown each page
         $logger->info($numOfItems);
         $logger->info($pageId);
         $filteredList = $filteredList->slice((int)$itemsPerPage * ((int)$pageId - 1), (int)$itemsPerPage);
