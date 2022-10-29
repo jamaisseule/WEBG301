@@ -15,3 +15,26 @@ INSERT INTO product(id, name, category, description, price, weight, image) VALUE
 ('14','Elegant Dress','Dress','Elegant Solid Maxi','890','','Elegant Solid Maxi Dress.JPG'),
 ('15','Blazer & Skirt','Blazer','Plaid','990','','Plaid Blazer & Skirt.JPG'),
 ('16','Long Dress','Dress','Overalls, Young, dynamic','950','','Long Overalls Dress.JPG');
+
+
+
+
+
+INSERT INTO product(id, name, category, description, price, weight, image) VALUES
+('1','1','Silk Sweater','Silk Turtleneck','450','','Silk Turtleneck Sweater.JPG'),
+('2','2','Solid Loose Pant','','850','','Solid Loose Pant.JPG'),
+('3','3','Vintage Suit','Retron, Suit','680','','Retro Vintage Suit.JPG'),
+('4','4','Autumn Dress','Unique, Classy','780','','Autumn Dress.JPG'),
+('5','5','Martin High Neck Boots','High Neck','954','','Martin High Neck Boots.JPG'),
+('6','1','Fall Skirt','Plaid','452','','Sweater & Plaid Skirt.JPG'),
+('7','1','Wool Gile','Heart Neck','976','','Heart Neck Wool Gile.JPG'),
+('8','5','Joshi Shoes','Loafer','1200','','Joshi Loafer Shoes.JPG'),
+('9','5','Oxford Shoes','Basic','650','','Basic Oxford Shoes.JPG'),
+('10','1','V-neck Sweater','Paid, V-neck','700','','Paid V-neck Sweater.JPG'),
+('11','3','Long Coat','Black Felt','2500','','Long Black Felt Coat.JPG'),
+('12','2','Leg Pant','Plaid Wide ','150','','Plaid Wide Leg Pant.JPG'),
+('13','4','Corduroy Dress','Solid, Basic','3000','','Solid Corduroy Dress.JPG'),
+('14','4','Elegant Dress','Elegant Solid Maxi','890','','Elegant Solid Maxi Dress.JPG'),
+('15','3','Blazer & Skirt','Plaid','990','','Plaid Blazer & Skirt.JPG'),
+('16','4','Long Dress','Overalls, Young, dynamic','950','','Long Overalls Dress.JPG');
+

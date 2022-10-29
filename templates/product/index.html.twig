@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Product index{% endblock %}
+{% block title %}GRAND Store | Academia Fashion{% endblock %}
 
 {% block body %}
     <div class="container-md">
@@ -18,21 +18,29 @@
                                placeholder="Search Product" aria-label="Search"
                                aria-describedby="search-addon"/><br>
                         <h6>Category:</h6>
-                        <label>
-                            <input name="category" type="checkbox" value="Sweater"{{ (selectedCat=="Sweater") ? 'Sweater' }}> Sweater
-                        </label><br>
-                        <label>
-                            <input name="category" type="checkbox" value="Pant"{{ (selectedCat=="Pant") ? 'Pant' }}> Pant
-                        </label><br>
-                        <label>
-                            <input name="category" type="checkbox" value="Dress"{{ (selectedCat==" Dress") ? ' Dress' }}> Dress
-                        </label><br>
-                        <label>
-                            <input name="category" type="checkbox" value="Blazer"{{ (selectedCat=="Blazer") ? 'Blazer' }}> Blazer
-                        </label><br>
-                        <label>
-                            <input name="category" type="checkbox" value="Shoes"{{ (selectedCat=="Shoes") ? 'Shoes' }}> Shoes
-                        </label><br>
+                        <select name="category">
+                            <option value="Sweater"> Sweater</option>
+                            <option value="Pant"> Pant</option>
+                            <option value="Blazer"> Blazer</option>
+                            <option value="Dress"> Dress</option>
+                            <option value="Shoes"> Shoes</option>
+                        </select><br>
+
+{#                        <label>#}
+{#                            <input name="category" type="checkbox" value="Sweater"{{ (selectedCat=="Sweater") ? 'Sweater' }}> Sweater#}
+{#                        </label><br>#}
+{#                        <label>#}
+{#                            <input name="category" type="checkbox" value="Pant"{{ (selectedCat=="Pant") ? 'Pant' }}> Pant#}
+{#                        </label><br>#}
+{#                        <label>#}
+{#                            <input name="category" type="checkbox" value="Dress"{{ (selectedCat==" Dress") ? ' Dress' }}> Dress#}
+{#                        </label><br>#}
+{#                        <label>#}
+{#                            <input name="category" type="checkbox" value="Blazer"{{ (selectedCat=="Blazer") ? 'Blazer' }}> Blazer#}
+{#                        </label><br>#}
+{#                        <label>#}
+{#                            <input name="category" type="checkbox" value="Shoes"{{ (selectedCat=="Shoes") ? 'Shoes' }}> Shoes#}
+{#                        </label><br>#}
                         <br>
                         Min Price: <input type="number" name="minPrice"><br><br>
                         Max Price: <input type="number" name="maxPrice"><br><br>
