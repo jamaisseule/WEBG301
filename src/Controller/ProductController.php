@@ -27,36 +27,45 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class ProductController extends AbstractController
 {
-
-
-//    public function index(ProductRepository $productRepository, Request $request, int $pageId = 1): Response
-//    {
-//        $selectedCategory = $request->query->get('category');
-//        $minPrice = $request->query->get('minPrice');
-//        $maxPrice = $request->query->get('maxPrice');
-//
-//
-//        $expressionBuilder = Criteria::expr();
-//        $criteria = new Criteria();
-//        if (is_null($minPrice) || empty($minPrice)) {
-//            $minPrice = 0;
+/// xem gio hang //////
+//    /**
+//     * @Route ("/cart", name="cart_index")
+//     */
+//    public function cart(Request $request, ProductRepository $productRepository){
+//        $total = 0;
+//        $session = $request->getSession();
+//        $cart = $session->get('cartElements',[]);
+//        $cartWithData = [];
+//        foreach ($cart as $id => $quantity){
+//            $cartWithData[] = [
+//                'product' => $productRepository->find($id),
+//                'quantity' => $quantity
+//            ];
 //        }
-//        $criteria->where($expressionBuilder->gte('Price', $minPrice));
-//        if (!is_null($maxPrice) && !empty(($maxPrice))) {
-//            $criteria->andWhere($expressionBuilder->lte('Price', $maxPrice));
+//        foreach ($cartWithData as $item){
+//            $totalItem = $item['product']->getPrice() * $item['quantity'];
+//            $total += $totalItem;
 //        }
-//        if (!is_null($selectedCategory)) {
-//            $criteria->andWhere($expressionBuilder->eq('Category', $selectedCategory));
-//        }
-//        $filteredList = $productRepository->matching($criteria);
-//        $numOfItems = $filteredList->count();   // total number of items satisfied above query
-//        $itemsPerPage = 8; // number of items shown each page
-//        $filteredList = $filteredList->slice($itemsPerPage * ($pageId - 1), $itemsPerPage);
-//        return $this->renderForm('product/index.html.twig', [
-//            'products' => $filteredList,
-//            'selectedCat' => $selectedCategory ?: 'Cat',
-//            'numOfPages' => ceil($numOfItems / $itemsPerPage)
+//        return $this->render('product/cart.html.twig',[
+//            'items' => $cartWithData,
+//            'total' => $total
 //        ]);
+//    }
+//
+////// xoa sp tu gio hang /////
+//
+//    /**
+//     * @Route("/removeCart/{id}", name="app_remove_cart", methods={"GET"})
+//     */
+//    public function remove($id,Request $request){
+//        $session = $request->getSession();
+//        $cart = $session->get('cartElements',[]);
+//        if(!empty($cart[$id])){
+//            unset($cart[$id]);
+//        }
+//
+//        $session->set('cartElements',$cart);
+//        return $this->redirectToRoute("cart_index");
 //    }
 
     /**
@@ -88,12 +97,24 @@ class ProductController extends AbstractController
 //    public function sendmail(Swift_Mailer $mailer): Response
 //    {
 //        $message = (new Swift_Message('Hello Email'))
-//            ->setFrom('lthang211.com')
-//            ->setTo('team3@gmail.com')
+//            ->setFrom('ldd392002@gmail.com')
+//            ->setTo('duyle392002@gmail.com')
 //            ->setBody("3rd Test send email");
 //
 //        $mailer->send($message);
 //        return new Response("Send mail successfully");
+//    }
+//    /**
+//     * @Route("/reviewCart", name="app_review_cart", methods={"GET"})
+//     */
+//    public function reviewCart(Request $request, CartRepository $cartRepository): Response
+//    {
+//        $user= $this->getUser();
+//        $tempQuery = $cartRepository->reviewCart($user);
+//        return $this->render('cart/cart_review.html.twig', [
+//            'carts' =>  $tempQuery->getResult(),
+//
+//        ]);
 //    }
 
     /**
@@ -101,12 +122,16 @@ class ProductController extends AbstractController
      */
     public function reviewCart(Request $request): Response
     {
+        $user= $this->getUser();
         $session = $request->getSession();
         if ($session->has('cartElements')) {
             $cartElements = $session->get('cartElements');
         } else
             $cartElements = [];
         return $this->json($cartElements);
+//        return $this->render('product/cart.html.twig', [
+//            'items' =>  $cartElements
+//        ]);
     }
 
 
@@ -207,6 +232,9 @@ class ProductController extends AbstractController
         if (!is_null($maxPrice) && !empty(($maxPrice))) {
             $criteria->andWhere($expressionBuilder->lte('Price', $maxPrice));
         }
+//        if (!is_null($selectedCategory)) {
+//            $criteria->andWhere($expressionBuilder->in('Category', $selectedCategory));
+//        }
         if (!is_null($selectedCategory)) {
             $criteria->andWhere($expressionBuilder->eq('Category', $selectedCategory));
         }
