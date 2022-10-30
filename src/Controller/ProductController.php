@@ -88,8 +88,8 @@ class ProductController extends AbstractController
 //    public function sendmail(Swift_Mailer $mailer): Response
 //    {
 //        $message = (new Swift_Message('Hello Email'))
-//            ->setFrom('ldd392002@gmail.com')
-//            ->setTo('duyle392002@gmail.com')
+//            ->setFrom('lthang211.com')
+//            ->setTo('team3@gmail.com')
 //            ->setBody("3rd Test send email");
 //
 //        $mailer->send($message);
