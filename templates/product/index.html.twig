@@ -27,19 +27,19 @@
                         </select><br>
 
 {#                        <label>#}
-{#                            <input name="category" type="checkbox" value="Sweater"{{ (selectedCat=="Sweater") ? 'Sweater' }}> Sweater#}
+{#                            <input name="category[]" type="checkbox" value="Sweater"{{ (selectedCat=="Sweater") ? 'Sweater' }}> Sweater#}
 {#                        </label><br>#}
 {#                        <label>#}
-{#                            <input name="category" type="checkbox" value="Pant"{{ (selectedCat=="Pant") ? 'Pant' }}> Pant#}
+{#                            <input name="category[]" type="checkbox" value="Pant"{{ (selectedCat=="Pant") ? 'Pant' }}> Pant#}
 {#                        </label><br>#}
 {#                        <label>#}
-{#                            <input name="category" type="checkbox" value="Dress"{{ (selectedCat==" Dress") ? ' Dress' }}> Dress#}
+{#                            <input name="category[]" type="checkbox" value="Dress"{{ (selectedCat==" Dress") ? ' Dress' }}> Dress#}
 {#                        </label><br>#}
 {#                        <label>#}
-{#                            <input name="category" type="checkbox" value="Blazer"{{ (selectedCat=="Blazer") ? 'Blazer' }}> Blazer#}
+{#                            <input name="category[]" type="checkbox" value="Blazer"{{ (selectedCat=="Blazer") ? 'Blazer' }}> Blazer#}
 {#                        </label><br>#}
 {#                        <label>#}
-{#                            <input name="category" type="checkbox" value="Shoes"{{ (selectedCat=="Shoes") ? 'Shoes' }}> Shoes#}
+{#                            <input name="category[]" type="checkbox" value="Shoes"{{ (selectedCat=="Shoes") ? 'Shoes' }}> Shoes#}
 {#                        </label><br>#}
                         <br>
                         Min Price: <input type="number" name="minPrice"><br><br>
@@ -86,8 +86,11 @@
                                             <div class="card-footer">
                                                 <a href="{{ path('app_add_cart', {'id': product.id}) }}"
                                                    class="btn btn-primary d-flex flex-wrap justify-content-center">Add to cart</a>
-                                                {#                                            <a href="{{ path('app_product_show', {'id': product.id}) }}" #}
-                                                {#                                               class="btn btn-primary">Show</a> #}
+{#                                                <a href="{{ path('app_add_cart', {'id': product.id}) }}">#}
+{#                                                    <img src="{{ asset('images/cart.png') }}" height="30px" width="30px"/></a>#}
+{#                                                <a href="{{ path('app_product_show', {'id': product.id}) }}"#}
+{#                                                   class="btn btn-primary">Show</a>#}
+{#                                                <input type="number" name="quantity" height="30px" width="30px">#}
                                             </div>
                                         </a>
                                     </div>
