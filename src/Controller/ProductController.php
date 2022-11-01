@@ -238,11 +238,11 @@ class ProductController extends AbstractController
         if (!is_null($selectedCategory)) {
             $criteria->andWhere($expressionBuilder->eq('Category', $selectedCategory));
         }
-        if (!is_null($Name) && !empty(($Name))) {
-            $criteria->andWhere($expressionBuilder->contains('Name', $Name));
+//        if (!is_null($Name) && !empty(($Name))) {
+//            $criteria->andWhere($expressionBuilder->contains('Name', $Name));
 //            $criteria->orWhere($expressionBuilder->contains('description', $Name));
-
-        }
+//
+//        }
 //        if (!empty($sortBy)) {
 //            $criteria->orderBy([$sortBy => ($orderBy == 'asc') ? Criteria::ASC : Criteria::DESC]);
 //        }
