@@ -220,8 +220,8 @@ class ProductController extends AbstractController
         $Name = $request->query->get('name');
         $minPrice = $request->query->get('minPrice');
         $maxPrice = $request->query->get('maxPrice');
-//        $sortBy = $request->query->get('sort');
-//        $orderBy = $request->query->get('order');
+        $sortBy = $request->query->get('sort');
+        $orderBy = $request->query->get('order');
 
         $expressionBuilder = Criteria::expr();
         $criteria = new Criteria();
@@ -238,14 +238,14 @@ class ProductController extends AbstractController
         if (!is_null($selectedCategory)) {
             $criteria->andWhere($expressionBuilder->eq('Category', $selectedCategory));
         }
-//        if (!is_null($Name) && !empty(($Name))) {
-//            $criteria->andWhere($expressionBuilder->contains('Name', $Name));
+        if (!is_null($Name) && !empty(($Name))) {
+            $criteria->andWhere($expressionBuilder->contains('Name', $Name));
 //            $criteria->orWhere($expressionBuilder->contains('description', $Name));
-//
-//        }
-//        if (!empty($sortBy)) {
-//            $criteria->orderBy([$sortBy => ($orderBy == 'asc') ? Criteria::ASC : Criteria::DESC]);
-//        }
+
+        }
+        if (!empty($sortBy)) {
+            $criteria->orderBy([$sortBy => ($orderBy == 'asc') ? Criteria::ASC : Criteria::DESC]);
+        }
         $filteredList = $productRepository->matching($criteria);
 
         $numOfItems = $filteredList->count();   // total number of items satisfied above query
