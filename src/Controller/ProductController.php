@@ -27,46 +27,46 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class ProductController extends AbstractController
 {
-/// xem gio hang //////
-//    /**
-//     * @Route ("/cart", name="cart_index")
-//     */
-//    public function cart(Request $request, ProductRepository $productRepository){
-//        $total = 0;
-//        $session = $request->getSession();
-//        $cart = $session->get('cartElements',[]);
-//        $cartWithData = [];
-//        foreach ($cart as $id => $quantity){
-//            $cartWithData[] = [
-//                'product' => $productRepository->find($id),
-//                'quantity' => $quantity
-//            ];
-//        }
-//        foreach ($cartWithData as $item){
-//            $totalItem = $item['product']->getPrice() * $item['quantity'];
-//            $total += $totalItem;
-//        }
-//        return $this->render('product/cart.html.twig',[
-//            'items' => $cartWithData,
-//            'total' => $total
-//        ]);
-//    }
-//
-////// xoa sp tu gio hang /////
-//
-//    /**
-//     * @Route("/removeCart/{id}", name="app_remove_cart", methods={"GET"})
-//     */
-//    public function remove($id,Request $request){
-//        $session = $request->getSession();
-//        $cart = $session->get('cartElements',[]);
-//        if(!empty($cart[$id])){
-//            unset($cart[$id]);
-//        }
-//
-//        $session->set('cartElements',$cart);
-//        return $this->redirectToRoute("cart_index");
-//    }
+/// xem gio hang /////
+    /**
+     * @Route ("/cart", name="cart_index")
+     */
+    public function cart(Request $request, ProductRepository $productRepository){
+        $total = 0;
+        $session = $request->getSession();
+        $cart = $session->get('cartElements',[]);
+        $cartWithData = [];
+        foreach ($cart as $id => $quantity){
+            $cartWithData[] = [
+                'product' => $productRepository->find($id),
+                'quantity' => $quantity
+            ];
+        }
+        foreach ($cartWithData as $item){
+            $totalItem = $item['product']->getPrice() * $item['quantity'];
+            $total += $totalItem;
+        }
+        return $this->render('product/cart.html.twig',[
+            'items' => $cartWithData,
+            'total' => $total
+        ]);
+    }
+
+//// xoa sp tu gio hang /////
+
+    /**
+     * @Route("/removeCart/{id}", name="app_remove_cart", methods={"GET"})
+     */
+    public function remove($id,Request $request){
+        $session = $request->getSession();
+        $cart = $session->get('cartElements',[]);
+        if(!empty($cart[$id])){
+            unset($cart[$id]);
+        }
+
+        $session->set('cartElements',$cart);
+        return $this->redirectToRoute("cart_index");
+    }
 
     /**
      * @Route("/addCart/{id}", name="app_add_cart", methods={"GET"})
